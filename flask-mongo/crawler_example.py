@@ -14,9 +14,7 @@ or, quicker (what worked for me, but may not work directly):
 '''
 
 
-
 url = "https://www.york.ac.uk/teaching/cws/wws/webpage1.html"
-
 
 options = Options()
 options.headless = True # does not apper as window
@@ -29,17 +27,14 @@ from webdriver_manager.chrome import ChromeDriverManager
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
 
-# goes to the specified url
-driver.get(url)
-
-# takes all html elements inside paragraph tag
-elements = driver.find_elements(By.TAG_NAME, "p")
+driver.get(url) # goes to the specified url
+elements = driver.find_elements(By.TAG_NAME, "p") # takes all html elements inside paragraph tag
 res = []
 for element in elements:
-    #takes the text from the paragraph tags
-    res.append(element.text)
+    res.append(element.text) #takes the text from the paragraph tags
 
 
+# Print the results
 for i,r in enumerate(res):
     print(f'#### paragraph {i} ####')
     print(r)

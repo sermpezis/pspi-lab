@@ -1,0 +1,17 @@
+[
+	{"name":"Pavlos",
+	"year":1987,
+	"gender":"male",
+	"property":1.0
+	},
+	{"name":"Bob",
+	"year":1997,
+	"gender":"male",
+	"property":2.0
+	},
+	{"name":"Alice",
+	"year":2001,
+	"gender":"female",
+	"property":3.0
+	}
+]
