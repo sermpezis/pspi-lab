@@ -1,5 +1,5 @@
 import json
-from pymongo import MongoClient, TEXT
+from pymongo import MongoClient
 
 # Connect to MongoDB running locally
 client = MongoClient('mongodb://127.0.0.1', 27017)
@@ -24,7 +24,7 @@ print('inserting data')
 db.test_col.insert_many(data)
 
 # create index for faster search with name
-db.test_col.create_index([("name", TEXT)])
+db.test_col.create_index([("name", "text")])
 
 # Close the connection to MongoDB
 print('closing connection')

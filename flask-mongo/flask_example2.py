@@ -18,8 +18,8 @@ def search():
 
     #### implementation: find one
 
-    # doc = mongo.db.test_col.find_one({"name": name})
-    doc = mongo.db.test_col.find_one({"$text": {"$search": f"\"{name}\""}})
+    doc = mongo.db.test_col.find_one({"name": name})
+    # doc = mongo.db.test_col.find_one({"$text": {"$search": name}})
     if doc is None:
         return "Name does not exist"
 
