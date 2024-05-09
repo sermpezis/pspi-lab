@@ -14,7 +14,7 @@ or, quicker (what worked for me, but may not work directly):
 '''
 
 
-url = "https://www.york.ac.uk/teaching/cws/wws/webpage1.html"
+url = "https://ai4netmon.csd.auth.gr"
 
 options = Options()
 options.headless = True # does not apper as window
@@ -29,14 +29,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 
 
 driver.get(url) # goes to the specified url
-elements = driver.find_elements(By.TAG_NAME, "p") # takes all html elements inside paragraph tag
-res = []
+section = driver.find_element(By.ID, "people") # take a specific section of the webpage
+elements = section.find_elements(By.TAG_NAME, "a") # take all elements of tag "a" in this section
 for element in elements:
-    res.append(element.text) #takes the text from the paragraph tags
-
-
-# Print the results
-for i,r in enumerate(res):
-    print(f'#### paragraph {i} ####')
-    print(r)
-    print('')
+	print(element.text)

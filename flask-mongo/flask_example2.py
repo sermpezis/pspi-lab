@@ -16,6 +16,9 @@ mongo = PyMongo(app)
 def search():
     name = request.args.get("name")
 
+    #### implementation: find one
+
+    # doc = mongo.db.test_col.find_one({"name": name})
     doc = mongo.db.test_col.find_one({"$text": {"$search": f"\"{name}\""}})
     if doc is None:
         return "Name does not exist"
@@ -25,6 +28,21 @@ def search():
     # print(doc)
     del doc['_id']
     return jsonify(doc)
+
+
+    #### implementation: find all
+    
+    # docs = mongo.db.test_col.find({"name": name})
+    # print(docs)
+    # res = []
+    # for doc in docs:
+    #     res.append({k:v for k,v in doc.items() if k != '_id'})
+    # if len(res)==0:
+    #     return "Name does not exist"
+    # return jsonify(res)
+
+
+
 
 
 
