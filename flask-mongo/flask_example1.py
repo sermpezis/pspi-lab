@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 '''
 Steps: 
+
 1) create virtual envinorment and activate it; e.g., in Ubuntu
     python -m venv venv
     source ./venv/bin/activate
@@ -11,8 +12,10 @@ Steps:
     A) add the app.run(...) in the end of your script (see below), and then type in the terminal "python flask_example1.py"
     B) run directly from the terminal "flask --app flask_example1.py run --debugger"
 
-# flask - -app main run - -debugger --> terminal --> Activating a connection via Flask with interactive
-# feedback from the browser when an error occurs during a request
+Notes:
+
+- you will get interactive feedback in the terminal when an error occurs during a request
+- in option A, when you change your code the API is updated automatically (you don't neet to kill the python script and restart it)
 '''
 
 ############################################################################################
@@ -31,7 +34,10 @@ app = Flask(__name__)
 # API call 1 - get request
 @app.route("/")
 def api_call_1():
+	## option 1: return message as json
     return jsonify({"res": "This is our first API Call"})
+    
+    ## option 2: return message as text
     # return "This is our second API call"
 
 
